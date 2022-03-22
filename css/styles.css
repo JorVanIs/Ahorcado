@@ -1,0 +1,162 @@
+body {
+    background-color: whitesmoke;
+}
+
+header {
+    margin-top: 1%;
+    margin-left: 1%;
+}
+
+.box {
+    display: flex;
+    flex-direction: column;
+    padding: 1%;
+    align-items: center;
+    margin: 7%;
+}
+
+.box2 {
+    display: flex;
+    flex-direction: column;
+    padding: 1%;
+    align-items: center;
+    margin: 3%;
+}
+
+.box3 {
+    display: flex;
+    flex-direction: column;
+    padding: 1%;
+    align-items: center;
+}
+
+.invisible {
+    display:none !important;
+}
+
+.button1 {
+    padding-left: 80px;
+    padding-right: 80px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    background-color: whitesmoke;
+    border: 2px solid blue;
+    color: blue;
+    border-radius: 24px;
+    font-family: 'Inter', sans-serif;
+}
+
+.button1:hover {
+    background-color: blue;
+    border: 2px solid blue;
+    color: whitesmoke;
+}
+
+div {
+    margin-bottom: 1%;
+}
+
+.button2 {
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-radius: 20px;
+    background-color: whitesmoke;
+    border: 2px solid blue;
+    color: blue;
+    font-family: 'Inter', sans-serif;
+}
+
+.button2:hover {
+    background-color: blue;
+    border: 2px solid blue;
+    color: whitesmoke;
+}
+
+button:active {
+    opacity: 20%;
+}
+
+.button {
+    padding-top: 17px;
+    padding-bottom: 17px;
+    padding-left: 40px;
+    padding-right: 40px;
+    border-radius: 20px;
+    margin-left: 1px;
+    margin-right: 1px;
+    font-family: 'Inter', sans-serif;
+}
+
+.button3 {
+    background-color: whitesmoke;
+    border: 2px solid blue;
+    color: blue;
+}
+
+.button3:hover {
+    background-color: blue;
+    border: 2px solid blue;
+    color: whitesmoke;
+}
+
+
+.button4 {
+    background-color: whitesmoke;
+    border: 2px solid blue;
+    color: blue;
+}
+
+.button4:hover {
+    background-color: blue;
+    border: 2px solid blue;
+    color: whitesmoke;
+}
+
+textarea {
+    background-color: transparent;
+    border: none;
+    font-family: 'Inter', sans-serif;
+    color: blue;
+    font-size: x-large;
+    text-transform: uppercase;
+}
+
+textarea::placeholder {
+    font-family: 'Inter', sans-serif;
+    color: blue;
+    font-size: x-large;
+    text-transform: none;
+}
+
+/* Footer */
+footer {
+    position: fixed;
+    background-color: blue;
+    bottom: 0;
+    width: 100%;
+    padding: 1px 0px;
+    text-align: center;
+    font-size: x-large;
+    color: whitesmoke;
+    margin-top: 1px;
+    font-family: 'Inter', sans-serif;
+    justify-content: center;
+}
+
+.footer {
+    position: relative !important;
+}
+
+.redes {
+    width: 20px;    
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.link {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}

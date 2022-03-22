@@ -1,0 +1,611 @@
+
+El Ahorcado
+
+Pagina
+https://jorvanis.github.io/Ahorcado/
+
+Repositorio
+https://github.com/JorVanIs/Ahorcado.git
+
+index.html
+cc/style.css
+js/canvas.js
+js/dibujoLetra.js
+js/entrada.js
+js/script.js
+imagen/github.png
+imagen/linkedin.png
+imagen/Vector.png
+imagen/Vector
+
+README
+
+
+_------______.........______--------_____-......
+_------______.........______--------_____-......
+
+index.html
+
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Juego del Ahorcado</title>
+        <link rel="stylesheet" href="css/styles.css"> 
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">        
+    </head>
+
+<body>
+    <main>
+        <header>
+            <img src="/imagen/Vector.svg" alt="Alura">
+        </header>
+        <div id="inicio" class="box">
+            <div>
+                <button class="button1" id="button-iniciar">Inicio juego</button>
+            </div>
+            <div>
+                <button class="button2" id="agregar-palabra">Agregar palabra</button>
+            </div>
+        </div>
+
+        <div id="a-palabra" class="box2 invisible">
+            <div>
+                <textarea name="palabra" id="palabra" cols="30" rows="9" placeholder="Ingrese una palabra"></textarea>
+            </div>
+            <div>
+                <button class="button button3" id="guardar">Guardar e iniciar</button>
+                <button class="button button4" id="cancelar">Cancela</button>
+            </div>
+        </div>
+        
+        <div id="juego" class="box3 invisible">
+            <div>
+                <canvas id="ahorcado" height="400px" width="800px"></canvas>
+            </div>
+            <div>
+                <button class="button button3" id="nuevo-juego">Nuevo juego</button>
+                <button class="button button4" id="desistir">Desiste</button>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div>
+            <p>Eleborado por : 
+                <a href="https://github.com/Jorvanis">
+                    <img src="/imagen/github.png" alt="GitHub" class="redes">
+                </a>
+                <a href="https://www.linkedin.com/in/jorge-vanegas-69a19a117">
+                    <img src="/imagen/linkedin.png" alt="LinkedIn" class="redes">
+                </a>
+                <a href="mailto:jorgevanegasisaza@gmail.com" class="link">Jorvanis</a>
+            </p>
+        </div>
+    </footer>
+    <script src="js/script.js"></script>
+    <script src="js/canvas.js"></script>    
+    <script src="js/dibujoLetra.js"></script>
+    <script src="js/entrada.js"></script>    
+</body>
+
+</html>
+
+_------______.........______--------_____-......
+_------______.........______--------_____-......
+
+cc/style.css
+
+body {
+    background-color: whitesmoke;
+}
+
+header {
+    margin-top: 1%;
+    margin-left: 1%;
+}
+
+.box {
+    display: flex;
+    flex-direction: column;
+    padding: 1%;
+    align-items: center;
+    margin: 7%;
+}
+
+.box2 {
+    display: flex;
+    flex-direction: column;
+    padding: 1%;
+    align-items: center;
+    margin: 3%;
+}
+
+.box3 {
+    display: flex;
+    flex-direction: column;
+    padding: 1%;
+    align-items: center;
+}
+
+.invisible {
+    display:none !important;
+}
+
+.button1 {
+    padding-left: 80px;
+    padding-right: 80px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    background-color: whitesmoke;
+    border: 2px solid blue;
+    color: blue;
+    border-radius: 24px;
+    font-family: 'Inter', sans-serif;
+}
+
+.button1:hover {
+    background-color: blue;
+    border: 2px solid blue;
+    color: whitesmoke;
+}
+
+div {
+    margin-bottom: 1%;
+}
+
+.button2 {
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-radius: 20px;
+    background-color: whitesmoke;
+    border: 2px solid blue;
+    color: blue;
+    font-family: 'Inter', sans-serif;
+}
+
+.button2:hover {
+    background-color: blue;
+    border: 2px solid blue;
+    color: whitesmoke;
+}
+
+button:active {
+    opacity: 20%;
+}
+
+.button {
+    padding-top: 17px;
+    padding-bottom: 17px;
+    padding-left: 40px;
+    padding-right: 40px;
+    border-radius: 20px;
+    margin-left: 1px;
+    margin-right: 1px;
+    font-family: 'Inter', sans-serif;
+}
+
+.button3 {
+    background-color: whitesmoke;
+    border: 2px solid blue;
+    color: blue;
+}
+
+.button3:hover {
+    background-color: blue;
+    border: 2px solid blue;
+    color: whitesmoke;
+}
+
+
+.button4 {
+    background-color: whitesmoke;
+    border: 2px solid blue;
+    color: blue;
+}
+
+.button4:hover {
+    background-color: blue;
+    border: 2px solid blue;
+    color: whitesmoke;
+}
+
+textarea {
+    background-color: transparent;
+    border: none;
+    font-family: 'Inter', sans-serif;
+    color: blue;
+    font-size: x-large;
+    text-transform: uppercase;
+}
+
+textarea::placeholder {
+    font-family: 'Inter', sans-serif;
+    color: blue;
+    font-size: x-large;
+    text-transform: none;
+}
+
+/* Footer */
+footer {
+    position: fixed;
+    background-color: blue;
+    bottom: 0;
+    width: 100%;
+    padding: 1px 0px;
+    text-align: center;
+    font-size: x-large;
+    color: whitesmoke;
+    margin-top: 1px;
+    font-family: 'Inter', sans-serif;
+    justify-content: center;
+}
+
+.footer {
+    position: relative !important;
+}
+
+.redes {
+    width: 20px;    
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.link {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+_------______.........______--------_____-......
+_------______.........______--------_____-......
+
+js/canvas.js
+
+function dibujarMuneco(counter) {    
+    // vertical
+    if (counter == 0) {
+        pincel.moveTo(200, 285);
+        pincel.lineTo(200, 50);
+        pincel.stroke();
+        counter++;
+        return counter;
+    // Horizontal
+    } else if(counter == 1) {
+        pincel.moveTo(200, 50);
+        pincel.lineTo(300, 50);
+        pincel.stroke();
+        counter++;
+        return counter;
+    // Cuerda
+    } else if(counter == 2) {
+        pincel.moveTo(300, 50);
+        pincel.lineTo(300, 70);
+        pincel.stroke();
+        counter++;
+        return counter;
+    // Cabeza
+    } else if(counter == 3) {
+        pincel.beginPath();
+        pincel.fillStyle = "red";
+        pincel.arc(300, 90, 20, 0, 2*Math.PI);
+        pincel.stroke();
+        counter++;
+        return counter;
+    // Tronco
+    } else if(counter == 4) {
+        pincel.beginPath();
+        pincel.moveTo(300, 110); 
+        pincel.lineTo(300, 190); 
+        pincel.stroke();
+        counter++;
+        return counter;
+    // Pie Izdo
+    } else if(counter == 5) {
+        pincel.moveTo(300, 190);
+        pincel.lineTo(270, 220); 
+        pincel.stroke();
+        counter++;
+        return counter;
+    // Pie Dcho
+    } else if(counter == 6) {
+        pincel.moveTo(300, 190); 
+        pincel.lineTo(330, 220); 
+        pincel.stroke();
+        counter++;
+        return counter;
+    // mano Izda
+    } else if(counter == 7) {
+        pincel.beginPath();
+        pincel.moveTo(300, 140); 
+        pincel.lineTo(270, 140); 
+        pincel.moveTo(271, 140); 
+        pincel.lineTo(271, 120); 
+        pincel.stroke();
+        pincel.beginPath();
+        pincel.arc(285, 135, 5, 0, Math.PI*2);
+        pincel.stroke();
+        counter++;
+        return counter;
+    // mano dcha
+    } else if(counter == 8) {
+        pincel.beginPath();
+        pincel.moveTo(300, 140);
+        pincel.lineTo(330, 140);
+        pincel.moveTo(329, 140);
+        pincel.lineTo(329, 120);
+        pincel.stroke();
+        pincel.beginPath();
+        pincel.arc(315, 135, 5, 0, Math.PI*2);
+        pincel.stroke();
+        counter++;
+        dibujoPierde();        
+        return counter;
+    } else {
+        return;
+    }
+}
+
+function iniciarJuego() {
+    // Dibujar triangulo de entrada
+    pincel.clearRect(0, 0, tablero.width, tablero.height);
+    pincel.lineWidth = 3;
+    pincel.strokeStyle = "blue";
+    pincel.beginPath();
+    pincel.moveTo(150, 300);
+    pincel.lineTo(250, 300);
+    pincel.lineTo(200, 285);
+    pincel.lineTo(150, 300);
+    pincel.stroke(); 
+    // Iniciar vbles
+    contador = 0;
+    contadorLetraError = 0;
+    listadoLetras = [];
+    esGanador = false;
+    palabraEnJuego = [];
+    let numero = Math.floor(Math.random()*listaDePalabras.length);
+    palabraJuego = listaDePalabras[numero].toUpperCase().split("");
+    // dibujar las lineas base
+    for(let i=0; i < palabraJuego.length; i++) {
+        pincel.moveTo((300 + (60 * i)), 300);
+        pincel.lineTo((350 + (60 * i)), 300);
+        pincel.stroke();
+    }
+}
+
+function dibujarGanador() {
+    pincel.beginPath();
+    pincel.fillStyle = "greenblue";
+    pincel.font = "bold 40px 'Inter'";
+    pincel.fillText("Felicitaciones", 405, 100);
+    pincel.fillText("Has ganado", 405, 150);
+}
+
+function dibujoPierde() {
+    pincel.beginPath();
+    pincel.fillStyle = "blue";
+    pincel.font = "bold 40px 'Inter'";
+    pincel.fillText("Fin del juego.", 405, 100);
+    pincel.fillText("Has perdido.", 405, 150);
+}
+
+
+_------______.........______--------_____-......
+_------______.........______--------_____-......
+
+js/dibujoLetra.js
+
+function dibujoLetra(letra) {
+    let indicador = 0;
+    for(let i = 0; i < palabraJuego.length; i++) {
+        if(letra == palabraJuego[i] && palabraJuego.join("") != palabraEnJuego.join("")) {
+            pincel.beginPath();
+            pincel.fillStyle = "blue";
+            pincel.font = "bold 50px 'Inter'";
+            pincel.fillText(letra, (305 + (60 * i)), 290);
+            palabraEnJuego[i] = palabraJuego[i];
+            indicador++;
+        }
+        
+        if(palabraJuego.join("") == palabraEnJuego.join("")) {
+            flag = false;
+            esGanador = true;
+            dibujarGanador();
+        }
+    }
+    if(indicador == 0) {
+        pincel.beginPath();
+        pincel.fillStyle = "blue";
+        pincel.font = "bold 50px 'Inter'";
+        pincel.fillText(letra, (255 + (60 * contadorLetraError)), 390);
+        contadorLetraError++;
+        return false;
+    } else {
+        return true;
+    }
+}
+_------______.........______--------_____-......
+_------______.........______--------_____-......
+
+js/entrada.js
+
+function letraEntrada(letraIngresada) {
+    const pattern = new RegExp('^[A-Z\u00d1]+$', 'i');
+    if(!pattern.test(letraIngresada) || letraIngresada.length > 1) {
+        return false;
+    } else {
+        return true;
+    }
+}
+
+function PalabraEntrada(letraIngresada) {
+    const pattern = new RegExp('^[A-Z\u00d1]+$', 'i');
+    if(!pattern.test(letraIngresada)) {    
+        return false;
+    } else {
+        return true;
+    }
+}
+
+_------______.........______--------_____-......
+_------______.........______--------_____-......
+
+js/script.js
+
+// Los botones
+let botonIniciar = document.querySelector("#button-iniciar");
+let agregarPalabra = document.querySelector("#agregar-palabra");
+let guardar = document.querySelector("#guardar");
+let cancelar = document.querySelector("#cancelar");
+let nuevoJuego = document.querySelector("#nuevo-juego");
+let desistir = document.querySelector("#desistir");
+
+// Las vbles
+let inicio = document.querySelector("#inicio");
+let aPalabra = document.querySelector("#a-palabra");
+let juego = document.querySelector("#juego");
+let footer = document.querySelector("footer");
+// Listado nombres de la familia
+let listaDePalabras = [
+  "CAMILA",
+  "LINA",
+  "TINA",
+  "SANDRA",
+  "OLGA",
+  "MONICA",
+  "MAURICIO",
+  "OMAR",
+  "ARTURO",
+  "RAUL",
+];
+let palabra = document.querySelector("#palabra");
+let tablero = document.querySelector("canvas");
+let pincel = ahorcado.getContext("2d");
+let contador = 0;
+let flag = false;
+let palabraJuego;
+let contadorLetraError = 0;
+let listadoLetras = [];
+let palabraEnJuego = [];
+let esGanador = false;
+
+botonIniciar.addEventListener("click", () => {
+  inicio.classList.add("invisible");
+  juego.classList.remove("invisible");
+  footer.classList.add("footer");
+  iniciarJuego();
+  flag = true;
+});
+
+agregarPalabra.addEventListener("click", () => {
+  inicio.classList.add("invisible");
+  aPalabra.classList.remove("invisible");
+  flag = false;
+});
+
+guardar.addEventListener("click", () => {
+  
+  if(!(palabra.value.length > 10)) {
+    if(PalabraEntrada(palabra.value.toUpperCase())) {
+      listaDePalabras.push(palabra.value.toUpperCase());
+      aPalabra.classList.add("invisible");
+      juego.classList.remove("invisible");
+      footer.classList.add("footer");
+      iniciarJuego();
+      flag = true;
+    }
+  } else {
+    swal("¡Palabra extensa!", `La palabra debe tener maximo 10 letras y tiene ${palabra.value.length} letras.`, "warning");
+  }
+});
+
+cancelar.addEventListener("click", () => {
+  aPalabra.classList.add("invisible");
+  inicio.classList.remove("invisible");
+  footer.classList.remove("footer");
+  flag = false;
+});
+
+desistir.addEventListener("click", () => {
+  juego.classList.add("invisible");
+  inicio.classList.remove("invisible");
+  footer.classList.remove("footer");
+  esGanador = false;
+  flag = false;
+});
+
+nuevoJuego.addEventListener("click", () => {
+  iniciarJuego();
+  flag = true;
+});
+
+window.addEventListener("keydown", (element) => {
+  if (flag && letraEntrada(element.key) && contador < 9) {
+    if (!listadoLetras.includes(element.key.toUpperCase())) {
+      listadoLetras.push(element.key.toUpperCase());
+      if(!dibujoLetra(element.key.toUpperCase())){
+          dibujarMuneco(contador);
+          contador++;
+      }
+    } 
+  } else if (contador >= 9) {
+    dibujoPierde();    
+  } else if (esGanador) {
+  }
+});
+
+_------______.........______--------_____-......
+_------______.........______--------_____-......
+
+README
+
+# JUEGO AHORCADO
+# Alura Challenge 2. Aprendiendo a desarrollar el Challenge 2 de Oracle ONE Requisitos:
+
+# Objetivo
+
+- Adivinar una palabra de una lista.
+- Poder agragar palabras a la lista.
+
+# Condiciones
+- Recibir solo minúsculas y mayúsculas.
+- Que solo se ingresen letras. No deben ser utilizadas letras con acentos ni caracteres especiales.
+- Validar la palabra cuando se pierde.
+- El tamaño de la palabra es de max. 10 caracteres.
+- Configurar footer (pie de página) con firma del dideñador.
+- Al completar o dibujo de la horca, debe ser mostrado un mensaje "Fin del juego" en la pantalla.
+- Si se completa la palabra correcta antes de que se acaben los intentos, debe ser mostrado un mensaje de "Ganaste, 
+    Felicidades!" en la pantalla.
+- La página debe tener los guiones indicando cada letra da palabra, separados por un espacio.
+- Para comenzar el juego la página debe tener un botón de "Iniciar Juego";
+- No debe ser posible escribir números dentro del juego.
+- Las letras equivocadas deben aparecer en la pantalla, pero no pueden aparecer de forma repetida;
+- Las letras correctas deben aparecer en la pantalla encima de los guiones, en la posición correcta em relación a la 
+    palabra. Extras:
+La página debe tener un campo para inserción de texto con la finalidad de adicionar nuevas palabras al juego, e un 
+    botón "Agregar palabra". Tenemos un periodo de tiempo de dos semanas para desarrollar el proyecto y vamos a trabajar con el sistema ágil de desarrollo, utilizando el Trello de la siguiente forma:
+
+    - La columna Listos para iniciar presenta las tarjetas con elementos que aun no fueron desarrollados.
+    - En la columna En Desarrollo estarán los elementos que estés desarrollando en el momento. Al iniciar una tarea, 
+      podrás mover la tarjeta que contiene dicha tarea para esta columna.
+    - En la columna Pausado estarán los elementos que comenzaste a desarrollar, pero necesitaste parar por algún 
+      motivo.
+    - Por fin, en la columna Concluido estarán los elementos ya concluidos. El Trello es una herramienta de uso individual para que puedas controlar el progreso de tus actividades, pero no será evaluada.
+- Elementos principales de la página • Título de su sitio web • Botón para iniciar el juego • Área para mostrar la horca y las letras de la palabra Extra! Un rodapie con los datos de la persona que desarrolló el sitio web!
+
+# Página:
+(https://jorvanis.github.io/ahorcado/)
+
+# Repositorio:
+(https://github.com/JorVanIs/Ahorcado.git)
+
+_------______.........______--------_____-......
+_------______.........______--------_____-......
+
+
+
+
+_------______.........______--------_____-......
+_------______.........______--------_____-......

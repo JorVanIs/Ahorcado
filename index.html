@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Juego del Ahorcado</title>
+        <link rel="stylesheet" href="css/styles.css"> 
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">        
+    </head>
+
+<body>
+    <main>
+        <header>
+            <img src="/imagen/Vector.svg" alt="Alura">
+        </header>
+        <div id="inicio" class="box">
+            <div>
+                <button class="button1" id="button-iniciar">Inicio juego</button>
+            </div>
+            <div>
+                <button class="button2" id="agregar-palabra">Agregar palabra</button>
+            </div>
+        </div>
+
+        <div id="a-palabra" class="box2 invisible">
+            <div>
+                <textarea name="palabra" id="palabra" cols="30" rows="9" placeholder="Ingrese una palabra"></textarea>
+            </div>
+            <div>
+                <button class="button button3" id="guardar">Guardar e iniciar</button>
+                <button class="button button4" id="cancelar">Cancela</button>
+            </div>
+        </div>
+        
+        <div id="juego" class="box3 invisible">
+            <div>
+                <canvas id="ahorcado" height="400px" width="800px"></canvas>
+            </div>
+            <div>
+                <button class="button button3" id="nuevo-juego">Nuevo juego</button>
+                <button class="button button4" id="desistir">Desiste</button>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div>
+            <p>Eleborado por : 
+                <a href="https://github.com/Jorvanis">
+                    <img src="/imagen/github.png" alt="GitHub" class="redes">
+                </a>
+                <a href="https://www.linkedin.com/in/jorge-vanegas-69a19a117">
+                    <img src="/imagen/linkedin.png" alt="LinkedIn" class="redes">
+                </a>
+                <a href="mailto:jorgevanegasisaza@gmail.com" class="link"> Jorvanis</a>
+            </p>
+        </div>
+    </footer>
+    <script src="js/script.js"></script>
+    <script src="js/canvas.js"></script>    
+    <script src="js/dibujoLetra.js"></script>
+    <script src="js/entrada.js"></script>    
+</body>
+
+</html>
